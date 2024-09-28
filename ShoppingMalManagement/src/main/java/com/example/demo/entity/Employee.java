@@ -1,16 +1,18 @@
 package com.example.demo.entity;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Employee {
+	
+	/*
+	 * empId created as primary Key using @Id annotation
+	 */
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long empId;
@@ -18,6 +20,10 @@ public class Employee {
     private String empName;
     private String empRole;
     private double empSalary;
+    
+    /*
+     * creating the references of Shop,Mall and Login
+     */
     
     @ManyToOne
     private Shop shop;
@@ -27,10 +33,11 @@ public class Employee {
     
     @ManyToOne
     private Login login;
-    
- 
 
-    // Getters and Setters
+    /*
+     *  Getters and Setters
+     */
+    
     public Long getEmpId() {
         return empId;
     }
@@ -62,6 +69,10 @@ public class Employee {
     public void setEmpSalary(double empSalary) {
         this.empSalary = empSalary;
     }
+    
+    /*
+     * default and parameterized constructors
+     */
 
 	public Employee(Long empId, String empName, String empRole, double empSalary) {
 		super();

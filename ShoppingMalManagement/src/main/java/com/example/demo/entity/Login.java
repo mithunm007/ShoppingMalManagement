@@ -10,16 +10,22 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Login {
+	
+	//userId declared as primary key
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-
+    
     private String userName;
     
-    @OneToMany(mappedBy = "login") // 'products' references the Cart entity's property
+    // 'employees' references the login entity's property
+    
+    @OneToMany(mappedBy = "login") 
     private List<Employee> employees;
 
     // Getters and Setters
+    
     public Long getUserId() {
         return userId;
     }
@@ -28,8 +34,6 @@ public class Login {
         this.userId = userId;
     }
     
-    
-
     public List<Employee> getEmployees() {
 		return employees;
 	}
@@ -45,7 +49,9 @@ public class Login {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
+    
+    //parameterized and default constructors
+    
 	public Login(Long userId, String userName) {
 		super();
 		this.userId = userId;

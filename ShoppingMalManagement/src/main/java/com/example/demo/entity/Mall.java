@@ -1,18 +1,17 @@
 package com.example.demo.entity;
 
 import java.util.List;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class Mall {
+	
+	//mallId as primary key
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mallId;
@@ -20,23 +19,24 @@ public class Mall {
     private String mallName;
     private String mallLocation;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Shop shops;
+    /*
+     *  'shops' references the mall entity's property
+     */
     
-//    @ManyToOne
-//    @JoinColumn(name = "shop_id", referencedColumnName = "shopId")
-//    private Shop shops;
-    
-    @OneToMany(mappedBy = "mall") // 'products' references the Cart entity's property
+    @OneToMany(mappedBy = "mall") 
     private List<Shop> shops;
     
-    @OneToMany(mappedBy = "mall") // 'products' references the Cart entity's property
+    /*
+     *  'employees' references the mall entity's property
+     */
+    
+    @OneToMany(mappedBy = "mall") 
     private List<Employee> employees;
     
+    /*
+     *  Getters and Setters
+     */
     
-    
-
-    // Getters and Setters
     public Long getMallId() {
         return mallId;
     }
@@ -45,8 +45,6 @@ public class Mall {
         this.mallId = mallId;
     }
     
-    
-
     public List<Employee> getEmployees() {
 		return employees;
 	}
@@ -79,7 +77,10 @@ public class Mall {
         this.shops = shops;
     }
 
-    // Constructors
+    /*
+     * parameterized and default  Constructors
+     */
+    
     public Mall(Long mallId, String mallName, String mallLocation,List< Shop> shops) {
         this.mallId = mallId;
         this.mallName = mallName;

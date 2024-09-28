@@ -7,6 +7,9 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Guest {
+	
+	//guestId declared as primary key
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long guestId;
@@ -14,6 +17,7 @@ public class Guest {
     private String guestName;
 
     // Getters and Setters
+    
     public Long getGuestId() {
         return guestId;
     }
@@ -29,6 +33,8 @@ public class Guest {
     public void setGuestName(String guestName) {
         this.guestName = guestName;
     }
+    
+    //parameterized Constructor and default constructor
 
 	public Guest(Long guestId, String guestName) {
 		super();

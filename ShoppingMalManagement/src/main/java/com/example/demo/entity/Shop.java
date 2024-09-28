@@ -6,24 +6,40 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class Shop {
+	
+	/*
+	 * shopId declared as primary key
+	 */
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long shopId;
 
     private String shopName;
     private String shopOwner;
+    
+    /*
+     *Mall entity referenced as mall in Shop entity
+     */
 
     @ManyToOne
     private Mall mall;
     
+    /*
+     * Employee references the shop entity as employees
+     */
+    
     @OneToMany(mappedBy = "shop") 
     private List<Employee> employees;
+    
+    /*
+     *  Getters and Setters
+     */
     
     public List<Employee> getEmployees() {
 		return employees;
@@ -32,10 +48,7 @@ public class Shop {
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
-
-
-
-    // Getters and Setters
+	
     public Long getShopId() {
         return shopId;
     }
@@ -60,20 +73,14 @@ public class Shop {
         this.shopOwner = shopOwner;
     }
 
-//    public Mall getMall() {
-//        return mall;
-//    }
-//
-//    public void setMall(Mall mall) {
-//        this.mall = mall;
-//    }
-
-    // Constructors
-    public Shop(Long shopId, String shopName, String shopOwner, Mall mall) {
+    /*
+     *  parameterized and default Constructors
+     */
+    
+    public Shop(Long shopId, String shopName, String shopOwner) {
         this.shopId = shopId;
         this.shopName = shopName;
         this.shopOwner = shopOwner;
-       // this.mall = mall;
     }
 
     public Shop() {

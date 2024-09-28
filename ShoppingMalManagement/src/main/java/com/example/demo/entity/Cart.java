@@ -14,30 +14,35 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Cart {
+	
+	/*
+	 * cartId declared as primary key
+	 */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
+    
+    /*
+     *  'login' references the Cart entity's property with userId
+     */
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "userId")
     private Login login;
+    
   
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(
-//        name = "cart_products", // Name of the join table
-//        joinColumns = @JoinColumn(name = "cartId"), // Foreign key in join table referring to Cart entity
-//        inverseJoinColumns = @JoinColumn(name = "pId") // Foreign key in join table referring to Product entity
-//    )
-//    private List<Product> products;
- 
+    /*
+     *  'products' references the Cart entity's property
+     */
     
     @OneToMany(mappedBy = "carts") // 'products' references the Cart entity's property
     private List<Product> products;
 
+    /*
+     *  Constructors
+     */
     
-
-    // Constructors, getters, and setters
     public Cart() {
     }
 
@@ -46,6 +51,10 @@ public class Cart {
         this.login = login;
         this.products = products;
     }
+    
+    /*
+     *  getters, and setters
+     */
 
     public Long getCartId() {
         return cartId;
@@ -70,6 +79,8 @@ public class Cart {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+    
+    //toString
 
     @Override
     public String toString() {

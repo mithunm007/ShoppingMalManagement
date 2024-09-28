@@ -9,17 +9,29 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Review {
+	
+	/*
+	 * reviewId declared as primary key
+	 */
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
 
     private String reviewRemark;
+    
+    /*
+     * guest references in review entity with guestId
+     */
 
     @ManyToOne
     @JoinColumn(name = "guestId", nullable = false)
     private Guest guest;
 
-    // Getters and Setters
+    /*
+     *  Getters and Setters
+     */
+    
     public Long getReviewId() {
         return reviewId;
     }
@@ -43,6 +55,10 @@ public class Review {
     public void setGuest(Guest guest) {
         this.guest = guest;
     }
+    
+    /*
+     * parameterized and default constructors
+     */
 
 	public Review(Long reviewId, String reviewRemark, Guest guest) {
 		super();

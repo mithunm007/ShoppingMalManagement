@@ -1,16 +1,17 @@
 package com.example.demo.entity;
 
-import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Product {
+	
+	/*
+	 * pId as primary key
+	 */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,23 +21,30 @@ public class Product {
     private String category;
     private double price;
 
-//    @OneToMany(mappedBy = "products") // 'products' references the Cart entity's property
-//    private Cart carts;
+    /*
+     * carts references in product entity
+     */
     
     @ManyToOne
     private Cart carts;
 
-    // Constructors, getters, and setters
+    /*
+     * parameterized and default Constructors
+     */
+    
     public Product() {
     }
 
-    public Product(Long pId, String productName, String category, double price, Cart carts) {
+    public Product(Long pId, String productName, String category, double price) {
         this.pId = pId;
         this.productName = productName;
         this.category = category;
         this.price = price;
-       // this.carts = carts;
     }
+    
+    /*
+     * getters and setters
+     */
 
     public Long getpId() {
         return pId;
@@ -70,13 +78,7 @@ public class Product {
         this.price = price;
     }
 
-//    public Cart getCarts() {
-//        return carts;
-//    }
-//
-//    public void setCarts(Cart carts) {
-//        this.carts = carts;
-//    }
+
 
   
 }
