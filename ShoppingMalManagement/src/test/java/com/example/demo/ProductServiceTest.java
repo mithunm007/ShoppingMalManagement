@@ -32,7 +32,7 @@ class ProductServiceTest {
         MockitoAnnotations.openMocks(this);
         
         // Initialize sample data
-        product = new Product(1L, "Product 1", "Category", 100.0, null);
+        product = new Product(1L, "Product 1", "Category", 100.0);
     }
 
     @Test

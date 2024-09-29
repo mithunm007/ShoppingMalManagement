@@ -36,7 +36,7 @@ class CartServiceTest {
         MockitoAnnotations.openMocks(this);
         
         // Initialize sample data
-        product = new Product(1L, "Product 1", "Category", 100.0, null);
+        product = new Product(1L, "Product 1", "Category", 100.0);
         cart = new Cart(1L, null, null);
     }
 
@@ -59,7 +59,7 @@ class CartServiceTest {
     @Test
     void testUpdateCart() {
         when(cartRepository.findById(1L)).thenReturn(Optional.of(cart));
-        cart.setProducts(Arrays.asList(new Product(2L, "Product 2", "Category", 150.0, null)));
+        cart.setProducts(Arrays.asList(new Product(2L, "Product 2", "Category", 150.0)));
         when(cartRepository.save(cart)).thenReturn(cart);
         Cart updatedCart = cartService.updateCart(1L, cart);
         assertNotNull(updatedCart);
