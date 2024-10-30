@@ -1,0 +1,432 @@
+General styling
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  position: relative; /* Allows absolute positioning of children */
+  height: 100vh; /* Full height of the viewport */
+  
+}
+
+.header {
+  background-color: #9f9fce;
+  /* background: transparent; */
+  /* background-image: url('n.png'); */
+  opacity: 0.4;
+  width: 100%;
+  padding: 2px;
+  text-align: center;
+}
+
+.header h1 {
+  color: rgb(22, 13, 13);
+  margin: 0;
+  font-size: 10rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #111010, #1f1f1e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowing 1.5s infinite alternate;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 5px #1a1818, 0 0 10px #1b1818, 0 0 15px #4d4746;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff6347, 0 0 20px #7c7248, 0 0 30px #d0c48c;
+  }
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 30px auto;
+}
+
+.nav-bar button {
+  background-color: #ff6347; /* Tomato background color */
+  border: none;
+  border-radius: 500px;
+  padding: 15px 40px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-bar button:hover {
+  background-color: #e53e3e; /* Darker shade on hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+.nav-bar button:active {
+  transform: scale(0.95); /* Slightly decrease size on click */
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 90px;
+  /* background-color: #2e2a2a; Light background for contrast */
+  background: transparent;
+}
+
+.about-card {
+  background: linear-gradient(135deg, #ff6347 0%, #ffdc3d 100%); /* Gradient background */
+  color: white;
+  border-radius: 20px; /* Smooth rounded corners */
+  padding: 50px;
+  max-width: 10000px; /* Increased max width to make it wider */
+  width: 90%; /* Ensure it fills 90% of the screen width */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Add depth with shadow */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in animation */
+}
+
+.about-card h2 {
+  font-size: 3rem; /* Larger font size */
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px; /* Letter spacing for modern look */
+  color: #0c0c0c;
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5); /* Deep shadow for extra depth */
+}
+
+.about-card p {
+  font-size: 1.4rem; /* Larger text for better readability */
+  line-height: 1.8; /* Improved line spacing */
+  margin-bottom: 30px;
+}
+
+.about-card p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Hover animation for dynamic effect */
+.about-card:hover {
+  transform: scale(1.08); /* Slight zoom on hover */
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Animated background image overlay */
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('imag-file-types-1024x512.png');
+  background-size: cover;
+  opacity: 0.1; /* Subtle opacity for a modern effect */
+  z-index: 0;
+ 
+}
+
+.about-card h2, .about-card p {
+  position: relative;
+  z-index: 1; /* Keep text above the background */
+}
+
+/* Animation effect for fading in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+.style-scroll {
+  width: 100%;
+  background-image: url('s.png');
+  opacity: 0.6;
+  overflow: hidden; /* Hide overflow */
+  margin: 20px 0; /* Space above and below */
+  padding: 307px;
+  top: 20px;
+  position: relative; /* Allow absolute positioning of text */
+}
+
+.scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #0e0c0c;
+  top: 50%; /* Center vertically */
+  left: 100%; /* Start off-screen to the right */
+  transform: translateY(-50%);
+  position: absolute;
+  animation: ScrollText 20s linear infinite; /* Animation */
+}
+
+@keyframes ScrollText {
+  0% {
+    left: 100%; /* Start completely off-screen to the right */
+  }
+  100% {
+    left: -100%; /* End completely off-screen to the left */
+  }
+}
+
+
+
+
+.contact-us {
+  background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur for glass effect */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle light border */
+  padding: 20px;
+  text-align: center;
+  margin: 20px auto;
+  width: 100%; /* Wide section */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Dark shadow */
+}
+
+.contact-us h2 {
+  font-size: 2.5rem; /* Larger heading */
+  color: #090909; /* Standout color for heading */
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.contact-card {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap; /* Cards wrap for smaller screens */
+  
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark transparent background for cards */
+  backdrop-filter: blur(8px); /* Keep blur effect */
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Light border for contrast */
+  width: 450px; /* Fixed width */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.contact-item i {
+  font-size: 3rem; /* Large icons */
+  color: #0b0b0b; /* Same color for icons */
+  margin-bottom: 10px;
+}
+
+.contact-text h3 {
+  font-size: 1.5rem;
+  color: #fff; /* White text for readability */
+  margin-bottom: 10px;
+}
+
+.contact-text p {
+  font-size: 1.1rem;
+  color: #ccc; /* Light grey text for contrast */
+}
+
+.eader {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ff6347;
+  position: absolute; 
+  top: 1000px; 
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+
+}
+
+.ader {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ff6347;
+  position: absolute; 
+  top: 1500px; 
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+
+}
+
+
+.top-brands-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 100px;
+  background-color: #0b0605;
+}
+
+.brand-card {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 200px;
+  width: 100px; /* Adjust as needed */
+  background-size: cover; /* Make the background cover the whole card */
+  background-position: center; /* Center the background image */
+  color: rgb(67, 3, 3); /* Adjust text color for visibility */
+  
+}
+
+/* Add specific background images for each card */
+.brand-card.brand1 {
+  background-image: url('5.webp'); /* Adjust path */
+}
+
+.brand-card.brand2 {
+  background-image: url('2.png'); /* Adjust path */
+}
+.brand-card.brand3 {
+  background-image: url('3.png'); /* Adjust path */
+}
+.brand-card.brand4 {
+  background-image: url('4.jpg'); /* Adjust path */
+}
+.brand-card.brand5 {
+  background-image: url('1.png'); /* Adjust path */
+}
+
+
+
+
+
+.op-brands-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 100px;
+  background-color: #1a0a07;
+}
+
+.brand-card {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 200px;
+  width: 150px; /* Adjust as needed */
+  background-size: cover; /* Make the background cover the whole card */
+  background-position: center; /* Center the background image */
+  color: rgb(67, 3, 3); /* Adjust text color for visibility */
+}
+
+/* Add specific background images for each card */
+.brand-card.brand6 {
+  background-image: url('6.png'); /* Adjust path */
+}
+
+.brand-card.brand7 {
+  background-image: url('7.png'); /* Adjust path */
+}
+.brand-card.brand8 {
+  background-image: url('8.png'); /* Adjust path */
+}
+.brand-card.brand9 {
+  background-image: url('9.png'); /* Adjust path */
+}
+.brand-card.brand10 {
+  background-image: url('10.png'); /* Adjust path */
+}
+
+.p-brands-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 100px;
+  background-color: #ff6347;
+}
+
+.rand-card {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 330px;
+  width: 2100px; /* Adjust as needed */
+  background-size: cover; /* Make the background cover the whole card */
+  background-position: center; /* Center the background image */
+  color: rgb(67, 3, 3); /* Adjust text color for visibility */
+}
+
+.rand-card.brand11 {
+  background-image: url('11.png'); /* Adjust path */
+}
+
+.der {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ff6347;
+  position: absolute; 
+  top: 2000px; 
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+
+}
+
+.er {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ff6347;
+  position: absolute; 
+  top: 2750px; 
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+
+}
+
+.h-brands-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 100px;
+  background-color: #ff6347;
+}
+
+.and-card {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 400px;
+  width: 2100px; /* Adjust as needed */
+  background-size: cover; /* Make the background cover the whole card */
+  background-position: center; /* Center the background image */
+  color: rgb(67, 3, 3); /* Adjust text color for visibility */
+}
+
+.and-card.brand12 {
+  background-image: url('12.png'); /* Adjust path */
+}

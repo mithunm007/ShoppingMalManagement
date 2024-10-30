@@ -1,0 +1,30 @@
+.mall-container {
+    padding: 200px;
+    color: blueviolet;
+  }
+  
+  .form-container {
+    margin-bottom: 20px;
+  }
+  
+  .mall-list, .shop-list, .employee-list {
+    margin-top: 20px;
+  }
+  
+  .mall-item, .shop-item, .employee-item {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
